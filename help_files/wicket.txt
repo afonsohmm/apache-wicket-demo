@@ -1,0 +1,44 @@
+#WEB XML --------------------------------------------------------------------------
+    <display-name>tarefas-web</display-name>
+    
+    <filter>
+        <filter-name>tarefas-web</filter-name>
+        <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+        <init-param>
+            <param-name>applicationClassName</param-name>
+            <param-value>com.leucotron.tarefas.web.JApplication</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>tarefas-web</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
+#POM ----------------------------------------------------------------------------	
+      <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-core</artifactId>
+            <version>7.7.0</version>
+        </dependency>   
+        
+        <dependency>
+            <groupId>com.leucotron</groupId>
+            <artifactId>TarefasModel</artifactId>
+            <version>0.1.0</version>
+        </dependency>   
+		
+		
+	<resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.html</include>
+                </includes>
+            </resource>
+        </resources>
+
+#WEB ----------------------------------------------------------------------------
+setRootRequestMapper(new CryptoMapper(getRootRequestMapper(), this));
